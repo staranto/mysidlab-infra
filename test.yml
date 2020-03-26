@@ -1,6 +1,6 @@
 ---
 
-- name: Create a sandbox instance
+- name: "debug all vars"
   hosts: localhost
   gather_facts: False
   vars:
@@ -10,8 +10,7 @@
     image: ami-0520e698dd500b1d1
     region: us-east-2
 
-    tasks:
-
-      - name: "debug all vars" 
-        debug:
-          var: hostvars[inventory_hostname]
+  tasks:
+    - name: "debug all vars" 
+      debug:
+        var: hostvars[inventory_hostname]
