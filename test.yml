@@ -11,5 +11,7 @@
     region: us-east-2
 
     tasks:
-    - debug:
-        var: hostvars[inventory_hostname]
+
+      - name: "debug all vars" 
+        debug:
+          var: hostvars[inventory_hostname]
