@@ -9,6 +9,7 @@
     security_group: ansible-security-group
     image: ami-0520e698dd500b1d1
     region: us-east-2
-  tasks:
+
+    tasks:
     - debug:
-        var: aws_api_key
+        var: hostvars[inventory_hostname]
