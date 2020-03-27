@@ -14,5 +14,20 @@
     - debug:
         var: hostvars[inventory_hostname]
 
-    - debug:
-        var: aws_api_key
+    - name: "Provision and launch instances"
+      ec2:
+        assign_public_ip: true
+        group: "{{ security_group }}"
+        image: "ami-0e38b48473ea57778"
+        instance_tags:
+          Name: "{{ siduser }}-lab1"
+          mysidlabs: "1"
+          mysidlabs_owner: "{{ siduser }}"
+          mysidlabs_tier: "lab1"
+        instance_type: "{{ instance_type }}"
+        key_name: "{{ aws_ssh_key_pair }}"
+        region: "{{ region }}"
+        vpc_subnet_id: "{{ vpc_subnet }}"
+        wait: true
+      register: ec2
+

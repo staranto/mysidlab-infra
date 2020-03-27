@@ -1,0 +1,9 @@
+---
+aws_ssh_key_pair: "ansible-labs-only"
+instance_type: "t2.micro"
+region: "us-east-2"
+security_group: "ssh-http-https"
+siduser: "siduser299"
+# vpc_subnet: "{{ lookup('env', 'VPC_SUBNET') | default('subnet-3964a275', true) }}"
+vpc_subnet: "subnet-3964a275"
+...
